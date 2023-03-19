@@ -1,5 +1,5 @@
 init:
-	docker network create go_networks
+	docker network create go_network
 	@make build
 	@make up
 	docker-compose exec db bash -c 'mysql -ppassword < ./docker-entrypoint-initdb.d/articles.sql'
