@@ -1,8 +1,9 @@
 init:
-	docker network create go_network
+	docker network create go_networks
 	@make build
 	@make up
-	docker-compose exec db bash -c 'mysql -p$$MYSQL_PASSWORD < ./docker-entrypoint-initdb.d/articles.sql'
+	docker-compose exec db bash -c 'mysql -ppassword < ./docker-entrypoint-initdb.d/articles.sql'
+	docker-compose exec front bash -c 'npm install'
 up:
 	docker-compose up -d
 down:

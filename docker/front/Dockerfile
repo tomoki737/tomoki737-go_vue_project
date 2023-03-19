@@ -4,6 +4,9 @@ WORKDIR /src/front
 
 COPY ../../frontend/package*.json ./
 
-RUN npm install
+RUN ls -la && \
+    pwd && \
+    ls -la /src/front && \
+    npm install
 
 CMD [ "npm", "run", "dev" ]
