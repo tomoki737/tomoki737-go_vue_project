@@ -1,5 +1,8 @@
 init:
-	npm init vue@latest
+	docker network create go_network
+	@make build
+	@make up
+	docker-compose exec db bash -c 'mysql -p$$MYSQL_PASSWORD < ./docker-entrypoint-initdb.d/articles.sql'
 up:
 	docker-compose up -d
 down:
@@ -23,7 +26,7 @@ front-log:
 back-log:
 	docker logs back
 back-serve:
-	docker-compose  exec back sh -c 'go run cmd/main.go'
+	docker-compose exec back sh -c 'go run cmd/main.go'
 front-serve:
 	docker-compose exec front bash -c 'npm run dev'
 

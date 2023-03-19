@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS articles (
   created_at TIMESTAMP NOT NULL DEFAULT current_timestamp,
   updated_at TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp
 );
-INSERT INTO articles(title, body) VALUES ('鈴木','suzuki');
-INSERT INTO articles(title, body) VALUES ('鈴d','yuyuuta');
+
+INSERT INTO articles(title, body) VALUES ('title','body');
+INSERT INTO articles(title, body) VALUES ('test_title','test_body');
